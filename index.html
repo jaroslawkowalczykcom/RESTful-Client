@@ -1,0 +1,255 @@
+<!doctype html>
+<html ng-app="trasportApp">
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Orders management system">
+		<meta name="keywords" content="sdm, transport, spedition">
+		<meta name="author" content="Jarosław Kowalczyk">
+
+		<title>Transport</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+		<link rel="stylesheet" type="text/css" href="css/global.css">
+
+		<!-- Bootstrap -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+		<!-- AngularJS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+
+		<!-- Global -->
+    	<script src="js/orders.js"></script>
+    	<script src="js/global.js"></script>
+
+    	<!-- DatePicker -->
+    	<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css">
+    	<script src="js/bootstrap-datepicker.min.js"></script>
+	</head>
+
+	<body ng-controller="orderController">
+
+
+	  	
+
+		<!-- Input groups -->
+		
+		<div class="container text-center mt-3">
+			<div class="row">
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="far fa-calendar-alt"></i></span>
+					  	</div>
+					  	<input data-provide="datepicker" data-date-language="pl" data-date-format="yyyy-mm-dd" type="text" ng-model="order.date" class="form-control uppercase" placeholder="YYYY-MM-DD" />
+					</div>	
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="fas fa-list-ol"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.order1" class="form-control uppercase" placeholder="order1" onkeyup="uppercase(this)" />
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="fas fa-car"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.order2" class="form-control uppercase" placeholder="order2" onkeyup="uppercase(this)" />
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="fas fa-car"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.order3" class="form-control uppercase" placeholder="order3" onkeyup="uppercase(this)" />
+					</div>
+				</div>	
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="fas fa-university"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.order4" class="form-control uppercase" placeholder="order4" onkeyup="uppercase(this)" />
+					</div>	
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12 mb-3">
+					<input type="button" class="btn btn-success btn-sm btn-block" value="Add" ng-click="add()" />
+				</div>												
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-sm-4 col-12">
+					<div class="input-group input-group-sm mb-3">
+			  			<div class="input-group-prepend">
+			    			<span class="input-group-text" id=""><i class="fas fa-truck-loading"></i></span>
+			  			</div>
+			  			<input type="text" ng-model="order.order5" class="form-control uppercase" placeholder="order5" onkeyup="uppercase(this)" />
+			 		 	<input type="text" ng-model="order.order6" class="form-control uppercase" placeholder="order6" onkeyup="uppercase(this)" />
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="fas fa-road"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.number1" class="form-control uppercase" placeholder="number1" />
+					</div>	
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group mb-3">
+					  	<div class="input-group-prepend">
+					   		<label class="input-group-text" for="inputGroupSelect01"><i class="fab fa-get-pocket"></i></label>
+					  	</div>
+					  	<select class="form-control form-control-sm " id="inputGroupSelect01" ng-model="order.order7">
+					    	<option value="opt1" selected>opt1</option>
+					    	<option value="opt2">opt2</option>
+					   		<option value="opt3">opt3</option>
+					   		<option value="opt4">opt4</option>
+					   		<option value="opt5">opt5</option>
+					  	</select>
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="fas fa-euro-sign"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.number2" class="form-control uppercase" placeholder="number2" />
+					</div>
+				</div>	
+				<div class="col-lg-2 col-sm-2 col-12 mb-3">
+					<input type="button" class="btn btn-warning btn-sm btn-block" value="Update" ng-click="update(order.id)" />		
+				</div>											
+			</div>
+
+			<div class="row">
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="fas fa-euro-sign"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.number3" class="form-control uppercase" placeholder="number3" />
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="fas fa-euro-sign"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.number4" class="form-control uppercase" placeholder="number4" />
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="fas fa-info"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.order8" class="form-control uppercase" placeholder="order8" onkeyup="uppercase(this)" />
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="far fa-clock"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.number5" class="form-control uppercase" placeholder="number5" />
+					</div>	
+				</div>
+				<div class="col-lg-2 col-sm-2 col-12">
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
+					  	</div>
+					  	<input type="text" ng-model="order.order9" class="form-control uppercase" placeholder="order9" onkeyup="uppercase(this)" />
+					</div>
+				</div>	
+				<div class="col-lg-2 col-sm-2 col-12">		
+				</div>											
+			</div>
+  		</div>
+  	
+
+  		<!-- ALERT -->
+		<div class="container text-center mt-3">
+			<div class="row">
+				<div class ="col-12">	
+	    			<div class="alert alert-dismissible fade show text-center" role="alert" uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')">{{alert.msg}}
+	    			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					</div>
+	    		</div>
+	    	</div>
+	    </div>
+
+
+	    <!-- ORDER'S TABLE -->
+  		<div>
+		<div class="table-responsive mt-3">
+			<table class="table table-hover table-sm table-bordered table-striped text-center">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Date</th>
+						<th scope="col">order1</th>
+						<th scope="col">order2</th>
+						<th scope="col">order3</th>
+						<th scope="col">order4</th>
+						<th scope="col">order5</th>
+						<th scope="col">order6</th>
+						<th scope="col">number1</th>
+						<th scope="col">order7</th>
+						<th scope="col">number2</th>
+						<th scope="col">number3</th>
+						<th scope="col">number4</th>
+						<th scope="col">order8</th>
+						<th scope="col">number5</th>
+						<th scope="col">order9</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="order in result">
+						<th scope="row">{{order.id}}</th>
+						<td>{{order.date}}</td>
+						<td>{{order.order1}}</td>
+						<td>{{order.order2}}</td>
+						<td>{{order.order3}}</td>
+						<td>{{order.order4}}</td>
+						<td>{{order.order5}}</td>
+						<td>{{order.order6}}</td>
+						<td>{{order.number1}}</td>
+						<td>{{order.order7}}</td>
+						<td>{{order.number2}}</td>
+						<td>{{order.number3}}</td>
+						<td>{{order.number4}}</td>
+						<td>{{order.order8}}</td>
+						<td>{{order.number5}}</td>
+						<td>{{order.order9}}</td>
+						<td>
+							<a href="#" ng-click="edit(order)"><i class="fas fa-edit ml-2 mr-2" style="color: orange"></i></a>
+							<a href="#" ng-click="del(order.id)"><i class="fas fa-trash-alt ml-2 mr-2" style="color: red"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+
+
+
+		
+
+		<script type="text/javascript">
+			$('.datepicker').datepicker();
+		</script>
+	</body>
+</html>
